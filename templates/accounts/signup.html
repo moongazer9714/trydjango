@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Signup{% endblock title %}
+
+{% block content %}
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Sign up</button>
+    <p>Menda accountim bor, <a href="{% url 'accounts:login' %}">Login</a></p>
+</form>
+
+{% endblock content %}

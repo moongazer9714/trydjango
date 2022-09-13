@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Article search list{% endblock title %}
+{% block content %}
+<div>
+    <ul>
+        {% for object in object_list %}
+        <!--    <li><a href="{{ object.id }}/">{{ object }}</a></li>-->
+        <li><a href="{{ object.get_absolute_url }}">{{ object }}</a></li>
+
+        {% endfor %}
+    </ul>
+</div>
+{% endblock content %}

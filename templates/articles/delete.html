@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Article list{% endblock title %}
+{% block content %}
+
+<form method="post" action="">
+    {% csrf_token %}
+    <p>Are you sure to delete "{{ article_obj }}"</p>
+    <a class="btn btn--sub btn--lg  my-md" href="{% url 'articles:article_list' %}">Go Back</a>
+    <input class="btn btn--sub btn--lg  my-md" type="submit" value="Confirm" />
+</form>
+
+{% endblock content %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Article list{% endblock title %}
+{% block content %}
+
+<form action="{% url 'articles:article_search' %}" method="get">
+    <input type="search" name="q">
+    <input type="submit" value="search">
+</form>
+
+<div>
+    <ul>
+        {% for object in object_list %}
+        <!--    <li><a href="{{ object.id }}/">{{ object }}</a></li>-->
+        <li><a href="{{ object.get_absolute_url }}">{{ object }}</a> |
+            <a href="{% url 'articles:article_update' object.id %}">Edit</a> |
+            <a href="{% url 'articles:article_delete' object.id %}">Delete</a>
+        </li>
+
+        {% endfor %}
+    </ul>
+</div>
+{% endblock content %}

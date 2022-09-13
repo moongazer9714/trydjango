@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock title %}
+
+{% block content %}
+{% if not error %}
+<form method="post">
+    {% csrf_token %}
+    <div>
+<!--        <input type="text" name="username" placeholder="username">-->
+        {{ form.username }}
+    </div>
+    <br>
+    <div>
+<!--        <input type="password" name="password" placeholder="password">-->
+        {{ form.password }}
+    </div>
+    <br>
+    <button type="submit">Log in</button>
+    <p>Manda akkountim yo`q, <a href="{% url 'accounts:signup' %}">Sign up</a></p>
+</form>
+{% else %}
+<p>bunday user topilmadi, <a href="{% url 'accounts:login' %}">Boshqadan harakat qilib ko`ring</a></p>
+{% endif %}
+{% endblock content %}
